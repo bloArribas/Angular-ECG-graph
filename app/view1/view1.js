@@ -18,7 +18,7 @@ angular.module('myApp.view1', ['ngRoute', 'nvd3'])
 
             "chart": {
                 "type": "lineChart",
-                "height": 450,
+                "height": 750,
                 "margin": {
                     "top": 20,
                     "right": 20,
@@ -44,8 +44,8 @@ angular.module('myApp.view1', ['ngRoute', 'nvd3'])
                     useFixedDomain: false,
                     useNiceScale: false,
                     horizontalOff: false,
-                    verticalOff: false,
-                    unzoomed: function(xDomain, yDomain) {
+                    verticalOff: true,
+                    unzoomed: function (xDomain, yDomain) {
                         var domains = {x1: 0, x2: 0, y1: 0, y2: 0};
                         return domains;
                     },
@@ -87,9 +87,22 @@ angular.module('myApp.view1', ['ngRoute', 'nvd3'])
 
         $scope.chart.data = [];
 
+        var chart;
+        var apiChart;
+        var chartScope = {};
+
+        $scope.chart.ready = function (scope, element) {
+            // this code will be applied once directive has been created
+            // scope - is the directive internal scope
+            // element - directive DOM element
+            chart = scope.chart;
+            apiChart = scope.api;
+            chartScope = scope;
+        };
+
         $scope.$on('DataProcessCompleteEvent', function () {
 
-            $scope.chart.api.getScope().data = [
+            chartScope.data = [
                 {
                     color: "#ff7f0e",
                     key: "2222 Wave",
@@ -97,9 +110,9 @@ angular.module('myApp.view1', ['ngRoute', 'nvd3'])
                     values: $scope.acquiredData
                 }
             ];
-            $scope.chart.api.refresh();
+            apiChart.refresh();
 
-            var chart = $scope.chart.api.getScope().chart;
+            //var chart = $scope.chart.api.getScope().chart;
             var svg = d3.select('#chart svg');
 
             addZoom({

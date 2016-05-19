@@ -21,7 +21,7 @@ angular.module('myApp', [
         var parsedData = [];
         var i = 0;
 
-        Papa.parse("http://0.0.0.0:8090/ecg.csv.bak", {
+        Papa.parse("http://0.0.0.0:8090/3000.csv", {
             download: true,
             worker: true,
             step: function (row) {
