@@ -66,97 +66,22 @@ angular.module('myApp.view1', ['ngRoute', 'nvd3'])
         };
 
         var innerApi = {};
-
-
-        // setTimeout(function(){
-        //     console.log('scope api:', $scope.chart.api);
-        //
-        //     innerApi = $scope.chart.api;
-        //     innerApi.api.getScope().data = [
-        //         {
-        //             color: "#ff7f0e",
-        //             key: "2222 Wave",
-        //             seriesIndex: 0,
-        //             values: $scope.acquiredData
-        //         }
-        //     ];
-        //     $scope.chart.api.refresh();
-        //
-        // }, 3000);
-
-
-        //var innerData = $scope.chart.api.getScope().data;
+        
 
         $scope.chart.data = [];
 
         $scope.$on('DataProcessCompleteEvent', function () {
-            // $scope.data = [
-            //     {
-            //         color: "#ff7f0e",
-            //         key: "2222 Wave",
-            //         seriesIndex: 0,
-            //         values: $scope.acquiredData
-            //     }
-            // ];
 
-            //console.log($scope.$ChildScope);
-
-            //$scope.api.refresh();
-
-            // innerApi.api.getScope().data = [
-            //     {
-            //         color: "#ff7f0e",
-            //         key: "2222 Wave",
-            //         seriesIndex: 0,
-            //         values: $scope.acquiredData
-            //     }
-            // ];
-            //
-            // console.log('got parent event');
-            setTimeout(function(){
-                //console.log('scope api:', $scope.chart.api);
-                $scope.chart.data = [
-                    {
-                        color: "#ff7f0e",
-                        key: "2222 Wave",
-                        seriesIndex: 0,
-                        values: $scope.acquiredData
-                    }
-                ];
-
-                // innerApi = $scope.chart.api;
-                // innerApi.api.getScope().data = [
-                //     {
-                //         color: "#ff7f0e",
-                //         key: "2222 Wave",
-                //         seriesIndex: 0,
-                //         values: $scope.acquiredData
-                //     }
-                // ];
-
-                console.log($scope.chart.api);
-                if($scope.chart.api)
-
-                    $scope.chart.api.getScope().data = [
-                        {
-                            color: "#ff7f0e",
-                            key: "2222 Wave",
-                            seriesIndex: 0,
-                            values: $scope.acquiredData
-                        }
-                    ];
-                    $scope.chart.api.refresh();
-
-            }, 3000);
+            $scope.chart.api.getScope().data = [
+                {
+                    color: "#ff7f0e",
+                    key: "2222 Wave",
+                    seriesIndex: 0,
+                    values: $scope.acquiredData
+                }
+            ];
+            $scope.chart.api.refresh();
         });
-
-        $scope.events = {
-            DataProcessCompleteEvent: function(e, $scope){
-
-                $scope.api.refreshWithTimeout(5);
-                console.log('Refreshed...');
-            }
-        };
 
 
     }]);
