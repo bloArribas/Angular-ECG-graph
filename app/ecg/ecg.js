@@ -1,16 +1,16 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute', 'nvd3'])
+angular.module('myApp.ecg', ['ngRoute', 'nvd3'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/view1', {
-            templateUrl: 'view1/view1.html',
-            controller: 'View1Ctrl'
+        $routeProvider.when('/ecg', {
+            templateUrl: 'ecg/ecg.html',
+            controller: 'EcgCtrl'
         });
     }])
 
 
-    .controller('View1Ctrl', ['$scope', function ($scope) {
+    .controller('EcgCtrl', ['$scope', function ($scope) {
 
         $scope.chart = {};
 
