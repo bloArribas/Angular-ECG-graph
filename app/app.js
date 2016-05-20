@@ -4,7 +4,6 @@
 angular.module('myApp', [
     'ngRoute',
     'myApp.ecg',
-    'myApp.view2',
     'myApp.version',
     'ngMaterial'
 ])
