@@ -28,7 +28,8 @@ angular.module('myApp.view1', ['ngRoute', 'nvd3'])
                 "useInteractiveGuideline": true,
                 "dispatch": {},
                 "xAxis": {
-                    "axisLabel": "Time (ms)"
+                    "axisLabel": "Time (ms)",
+                    showMaxMin: false,
                 },
                 "yAxis": {
                     "axisLabel": "Voltage (v)",
